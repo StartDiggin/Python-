@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Poke Belt Exam</title>
+  </head>
+  <body>
+    <h1>Welcome, {{curUser.first_name}}</h1>
+
+
+
+    <h3>{{count}} people poke you!</h3>
+
+
+
+
+    <div class="usersWhoPokedYou">
+      {%for user in whoPoke%}
+      <p>{{user.first_name}} poked you {{numUser}} times.</p>
+      {%endfor%}
+    </div>
+
+
+
+
+    <h3>People you may want to poke:</h3>
+    <div class="futurePokes">
+      <div class="name">
+        {%for user in otherUser%}
+        <p>{{user.first_name}} | {{user.email}} | {{count}} | <a href="/pokes/addpoke/{{user.id}}">Poke</a></p>
+        {%endfor%}
+      </div>
+
+
+
+
+
+      <a href="/pokes/logout">Logout</a>
+
+
+  </body>
+
+
+  <style media="screen">
+    .usersWhoPokedYou{
+      height: 120px;
+      width: 500px;
+      border: solid black 1px;
+      overflow: scroll;
+    }
+    .futurePokes{
+      height: 500px;
+      width: 700px;
+      /*border: solid black 1px;*/
+    }
+
+
+
+
+
+
+
+  </style>
+</html>
